@@ -1,0 +1,64 @@
+Sub yarnabase()
+'You may NOT EDIT THIS CODE and pass it off as your own.'
+'Copyright 2024 Orsek'
+
+    Dim wb As Workbook
+    Dim ws As Worksheet
+    Dim sheetName As String
+    Dim companyName As String
+    Dim yarnName As String
+    Dim weight As String
+    Dim yards As Long
+    Dim grams As Long
+    Dim ounces As Double
+    Dim inStock As Long
+    Dim costPerSkein As Double
+    Dim comments As String
+    Dim colorway As String
+
+    Set wb = ThisWorkbook  ' Reference the current workbook (Yarnabase)
+
+    ' Get sheet name from user input
+    sheetName = InputBox("Welcome to Yarnabase, made by Orsek Studios. Copyright 2024. To start, enter the name of the yarn.")
+
+    ' Create a new worksheet
+    Set ws = wb.Worksheets.Add
+
+    ' Rename the new worksheet to user-provided name
+    ws.Name = sheetName
+
+    companyName = InputBox(" Now, please enter the name of the company you bought this yarn from.")
+    weight = InputBox("Next, enter Yarn Weight (e.g. DK, Fingering):")
+    yards = InputBox("Now, enter Yards per Skein:")
+    grams = InputBox("Now, enter Grams per Skein:")
+    ounces = grams / 453.59  ' Convert grams to ounces
+    inStock = InputBox("So, how many do you have in stock?")
+    costPerSkein = InputBox("Enter the cost per Skein ($USD):")
+    comments = InputBox("Enter any additional comments you want to save:")
+    colorway = InputBox("Finally, enter the colourway.")
+
+    ' Write data headers to the new sheet
+    ws.Range("A1").Value = "Company Name"
+    ws.Range("C1").Value = "Weight"
+    ws.Range("D1").Value = "Yards"
+    ws.Range("E1").Value = "Grams"
+    ws.Range("F1").Value = "Ounces"
+    ws.Range("G1").Value = "In Stock"
+    ws.Range("H1").Value = "Cost/Skein"
+    ws.Range("I1").Value = "Comments"
+    ws.Range("J1").Value = "Colourway"
+
+    ' Write data to the new sheet
+    ws.Range("A2").Value = companyName
+    ws.Range("C2").Value = weight
+    ws.Range("D2").Value = yards
+    ws.Range("E2").Value = grams
+    ws.Range("F2").Value = ounces
+    ws.Range("G2").Value = inStock
+    ws.Range("H2").Value = costPerSkein
+    ws.Range("I2").Value = comments
+    ws.Range("J2").Value = colorway
+goodbye = InputBox("Thank you for using Yarnabase. See you next time!")
+End Sub
+
+
